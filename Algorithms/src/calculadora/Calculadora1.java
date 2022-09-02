@@ -19,7 +19,7 @@ public class Calculadora1 {
         System.out.println("La resta: " + (nro1 - nro2));
         System.out.println("El producto: " + (nro1 * nro2));
         System.out.println("La división: " + (nro1 / nro2));
-        System.out.println("El módulo: " + (nro1 % nro2));
+        System.out.println("El módulo: " + (nro1 % nro2)); // residuo
     }
     
 }
