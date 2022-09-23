@@ -16,7 +16,7 @@ public class Calculadora5 {
        ope = ingreso.next().charAt(0);
        CalculadoraServices calculadora = new CalculadoraServices();
        calculadora.calcular(nro1, nro2, ope);
-        System.out.println("El resultado es: " + calculadora.resultadoDouble);
+       System.out.println("El resultado es: " + calculadora.resultadoDouble);
     }
  
 }
