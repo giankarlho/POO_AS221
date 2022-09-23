@@ -17,4 +17,18 @@ public class CalculadoraServices {
         }
     }
     
+    public String esPrimo(int nro){
+        // ++ -> +1
+        int cantDiv = 0;
+        for (int i=1 ; i<=nro ; i++){
+            if (nro % i == 0) cantDiv ++;
+        }
+        if (cantDiv == 2){
+            resultadoCadena = "Si es primo";
+        }else{
+            resultadoCadena = "No es mi primo";
+        }
+        return resultadoCadena;
+    }
+    
 }
