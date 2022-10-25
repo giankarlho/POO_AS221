@@ -42,7 +42,7 @@ public class Calculadora extends javax.swing.JFrame {
         jbtn8 = new javax.swing.JButton();
         jbtn9 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -409,7 +409,7 @@ public class Calculadora extends javax.swing.JFrame {
                     .addComponent(jbtn3))
                 .addGap(10, 10, 10)
                 .addComponent(jbtn0)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

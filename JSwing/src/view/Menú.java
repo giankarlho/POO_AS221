@@ -3,7 +3,8 @@ package view;
 public class Menú extends javax.swing.JFrame {
 
     public Menú() {
-        initComponents();        
+        initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -11,6 +12,7 @@ public class Menú extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        lblFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenCalculadora = new javax.swing.JMenu();
         jCalculadora = new javax.swing.JMenuItem();
@@ -21,6 +23,9 @@ public class Menú extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/fondo2.jpg"))); // NOI18N
+        lblFondo.setText("jLabel2");
 
         jMenCalculadora.setText("Calculadora");
         jMenCalculadora.addActionListener(new java.awt.event.ActionListener() {
@@ -65,11 +70,15 @@ public class Menú extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 953, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,5 +140,6 @@ public class Menú extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jmitFiguras;
+    private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
 }

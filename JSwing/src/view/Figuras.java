@@ -1,9 +1,11 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import jpanels.jpPentagono;
+import jpanels.jpTriangulo;
 import panels.jpCirculo;
 import panels.jpCuadrado;
-
 
 public class Figuras extends javax.swing.JFrame {
 
@@ -13,11 +15,10 @@ public class Figuras extends javax.swing.JFrame {
         btnFiguras.add(rdnCuadrado);
         btnFiguras.add(rdnTriangulo);
         btnFiguras.add(rdnPentagono);
-        this.setSize(700,550);
+        this.setSize(700, 550);
         this.setLocationRelativeTo(null);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,6 +46,11 @@ public class Figuras extends javax.swing.JFrame {
 
         cboFiguras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cboFiguras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cuadrado", "Circulo", "Triángulo", "Pentágono", "Aquí ps Anghela" }));
+        cboFiguras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboFigurasActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione:");
@@ -70,10 +76,20 @@ public class Figuras extends javax.swing.JFrame {
         rdnTriangulo.setBackground(new java.awt.Color(204, 255, 204));
         rdnTriangulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rdnTriangulo.setText("Triangulo");
+        rdnTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdnTrianguloActionPerformed(evt);
+            }
+        });
 
         rdnPentagono.setBackground(new java.awt.Color(204, 255, 204));
         rdnPentagono.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         rdnPentagono.setText("Pentágono");
+        rdnPentagono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdnPentagonoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpMenuLayout = new javax.swing.GroupLayout(jpMenu);
         jpMenu.setLayout(jpMenuLayout);
@@ -86,9 +102,9 @@ public class Figuras extends javax.swing.JFrame {
                 .addComponent(cboFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(rdnCuadrado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(rdnCirculo)
-                .addGap(29, 29, 29)
+                .addGap(13, 13, 13)
                 .addComponent(rdnTriangulo)
                 .addGap(18, 18, 18)
                 .addComponent(rdnPentagono)
@@ -106,7 +122,7 @@ public class Figuras extends javax.swing.JFrame {
                         .addComponent(rdnTriangulo)
                         .addComponent(rdnPentagono))
                     .addComponent(jLabel1))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         jpFigura.setBackground(new java.awt.Color(255, 204, 204));
@@ -156,23 +172,102 @@ public class Figuras extends javax.swing.JFrame {
 
     private void rdnCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnCuadradoActionPerformed
         jpCuadrado cuadrado = new jpCuadrado();
-        cuadrado.setSize(700,500);
-        cuadrado.setLocation(0,0);
-        jpFigura.removeAll();
-        jpFigura.add(cuadrado,BorderLayout.CENTER);
-        jpFigura.revalidate();
-        jpFigura.repaint();
+        cuadrado.setSize(700, 500);
+        cuadrado.setLocation(0, 0);
+        mostrar(cuadrado);
+//        jpFigura.removeAll();
+//        jpFigura.add(cuadrado, BorderLayout.CENTER);
+//        jpFigura.revalidate();
+//        jpFigura.repaint();
     }//GEN-LAST:event_rdnCuadradoActionPerformed
 
     private void rdnCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnCirculoActionPerformed
         jpCirculo circulo = new jpCirculo();
-        circulo.setSize(700,500);
-        circulo.setLocation(0,0);
+        circulo.setSize(700, 500);
+        circulo.setLocation(0, 0);
+        mostrar(circulo);
+//        jpFigura.removeAll();
+//        jpFigura.add(circulo, BorderLayout.CENTER);
+//        jpFigura.revalidate();
+//        jpFigura.repaint();
+    }//GEN-LAST:event_rdnCirculoActionPerformed
+
+    private void rdnTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnTrianguloActionPerformed
+        jpTriangulo triangulo = new jpTriangulo();
+        triangulo.setSize(700, 500);
+        triangulo.setLocation(0, 0);
+        mostrar(triangulo);
+//        jpFigura.removeAll();
+//        jpFigura.add(triangulo, BorderLayout.CENTER);
+//        jpFigura.revalidate();
+//        jpFigura.repaint();
+    }//GEN-LAST:event_rdnTrianguloActionPerformed
+
+    private void cboFigurasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboFigurasActionPerformed
+        // Estoy tomando el index del combo, empieza en 0
+        //System.out.println("Selección-> " + cboFiguras.getSelectedIndex());
+        int figura = cboFiguras.getSelectedIndex();
+        switch (figura) {
+            case 1:
+                jpCuadrado cuadrado = new jpCuadrado();
+                cuadrado.setSize(700, 500);
+                cuadrado.setLocation(0, 0);
+                mostrar(cuadrado);
+//                jpFigura.removeAll();
+//                jpFigura.add(cuadrado, BorderLayout.CENTER);
+//                jpFigura.revalidate();
+//                jpFigura.repaint();
+                break;
+            case 2:
+                jpCirculo circulo = new jpCirculo();
+                circulo.setSize(700, 500);
+                circulo.setLocation(0, 0);
+                mostrar(circulo);
+//                jpFigura.removeAll();
+//                jpFigura.add(circulo, BorderLayout.CENTER);
+//                jpFigura.revalidate();
+//                jpFigura.repaint();
+                break;
+            case 3:
+                jpTriangulo triangulo = new jpTriangulo();
+                triangulo.setSize(700, 500);
+                triangulo.setLocation(0, 0);
+                mostrar(triangulo);
+//                jpFigura.removeAll();
+//                jpFigura.add(triangulo, BorderLayout.CENTER);
+//                jpFigura.revalidate();
+//                jpFigura.repaint();
+                break;
+            case 4:
+                jpPentagono pentagono = new jpPentagono();
+                pentagono.setSize(700, 500);
+                pentagono.setLocation(0, 0);
+                mostrar(pentagono);
+//                jpFigura.removeAll();
+//                jpFigura.add(pentagono, BorderLayout.CENTER);
+//                jpFigura.revalidate();
+//                jpFigura.repaint();
+                break;
+        }
+    }//GEN-LAST:event_cboFigurasActionPerformed
+
+    private void rdnPentagonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnPentagonoActionPerformed
+        jpPentagono pentagono = new jpPentagono();
+        pentagono.setSize(700, 500);
+        pentagono.setLocation(0, 0);
+        mostrar(pentagono);
+//        jpFigura.removeAll();
+//        jpFigura.add(pentagono, BorderLayout.CENTER);
+//        jpFigura.revalidate();
+//        jpFigura.repaint();
+    }//GEN-LAST:event_rdnPentagonoActionPerformed
+
+    public void mostrar(Object objeto) {
         jpFigura.removeAll();
-        jpFigura.add(circulo,BorderLayout.CENTER);
+        jpFigura.add((Component) objeto, BorderLayout.CENTER);
         jpFigura.revalidate();
         jpFigura.repaint();
-    }//GEN-LAST:event_rdnCirculoActionPerformed
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
