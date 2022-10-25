@@ -61,7 +61,7 @@ public class jpPentagono extends javax.swing.JPanel {
                 jtxtLadoCaretUpdate(evt);
             }
         });
-        add(jtxtLado, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 110, 40));
+        add(jtxtLado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Área");
