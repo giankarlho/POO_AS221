@@ -2,10 +2,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import jpanels.jpCirculo;
-import jpanels.jpCuadrado;
-import jpanels.jpPentagono;
-import jpanels.jpTriangulo;
+import panels.Yakenpo;
+import panels.jpCirculo;
+import panels.jpCuadrado;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -22,17 +21,18 @@ public class Principal extends javax.swing.JFrame {
         jpMenu = new javax.swing.JPanel();
         btnCirculo = new javax.swing.JButton();
         btnCuadrado = new javax.swing.JButton();
+        btnYakenpo = new javax.swing.JButton();
         jpPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 500));
-        setMinimumSize(new java.awt.Dimension(900, 500));
-        setPreferredSize(new java.awt.Dimension(900, 500));
+        setMaximumSize(new java.awt.Dimension(850, 500));
+        setMinimumSize(new java.awt.Dimension(850, 500));
+        setPreferredSize(new java.awt.Dimension(850, 500));
 
         jpMenu.setBackground(new java.awt.Color(153, 204, 255));
         jpMenu.setMaximumSize(new java.awt.Dimension(150, 500));
         jpMenu.setMinimumSize(new java.awt.Dimension(150, 500));
-        jpMenu.setPreferredSize(new java.awt.Dimension(150, 500));
+        jpMenu.setPreferredSize(new java.awt.Dimension(300, 500));
 
         btnCirculo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCirculo.setText("Circulo");
@@ -56,23 +56,40 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnYakenpo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnYakenpo.setText("YakenPo");
+        btnYakenpo.setMaximumSize(new java.awt.Dimension(150, 30));
+        btnYakenpo.setMinimumSize(new java.awt.Dimension(150, 30));
+        btnYakenpo.setPreferredSize(new java.awt.Dimension(120, 30));
+        btnYakenpo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnYakenpoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpMenuLayout = new javax.swing.GroupLayout(jpMenu);
         jpMenu.setLayout(jpMenuLayout);
         jpMenuLayout.setHorizontalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMenuLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+            .addGroup(jpMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnYakenpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
+            .addGroup(jpMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpMenuLayout.setVerticalGroup(
             jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpMenuLayout.createSequentialGroup()
-                .addContainerGap(357, Short.MAX_VALUE)
+                .addContainerGap(298, Short.MAX_VALUE)
                 .addComponent(btnCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(28, 28, 28)
+                .addComponent(btnYakenpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(btnCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
@@ -90,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jpPrincipalLayout.setVerticalGroup(
             jpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -98,20 +115,18 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jpMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpPrincipal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,6 +152,16 @@ public class Principal extends javax.swing.JFrame {
         jpPrincipal.revalidate();
         jpPrincipal.repaint();
     }//GEN-LAST:event_btnCuadradoActionPerformed
+
+    private void btnYakenpoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYakenpoActionPerformed
+        Yakenpo yakenpo = new Yakenpo();
+        yakenpo.setSize(700,500);
+        yakenpo.setLocation(0,0);
+        jpPrincipal.removeAll();
+        jpPrincipal.add(yakenpo,BorderLayout.CENTER);
+        jpPrincipal.revalidate();
+        jpPrincipal.repaint();
+    }//GEN-LAST:event_btnYakenpoActionPerformed
 
     public void mostrar(Object object) {
         jpPrincipal.removeAll();
@@ -183,6 +208,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCirculo;
     private javax.swing.JButton btnCuadrado;
+    private javax.swing.JButton btnYakenpo;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
     // End of variables declaration//GEN-END:variables

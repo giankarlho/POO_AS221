@@ -1,6 +1,6 @@
 package main;
 
-import vistas.Figuras;
+import view.Figuras;
 
 public class Principal1 extends javax.swing.JFrame {
 

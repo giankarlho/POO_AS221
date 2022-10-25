@@ -29,7 +29,7 @@ public class CalculadoraS {
         return resultado;
     }
     
-    public String primo(int nro){
+    public String esPrimo(int nro){
         String mensaje = "";
         int cantDiv = 0;
         for (int i = 1; i<nro/2 ; i++){

@@ -1,2 +1,3 @@
-/JSwing/nbproject/private/
-/JSwing/build/
+# ignore ALL files in ANY directory named temp
+src/panels/Yakenpo.form
+src/panels/Yakenpo.java

@@ -1,6 +1,6 @@
-package vistas;
+package view;
 
-import services.CalculadoraServices;
+import services.CalculadoraS;
 
 public class Calculadora extends javax.swing.JFrame {
 
@@ -518,7 +518,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnBorrarActionPerformed
 
     private void jbtnPrimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPrimoActionPerformed
-        CalculadoraServices calculadora = new CalculadoraServices();
+        CalculadoraS calculadora = new CalculadoraS();
         jlblResultado.setText(calculadora.esPrimo(Integer.parseInt(jlblResultado.getText())));
     }//GEN-LAST:event_jbtnPrimoActionPerformed
 

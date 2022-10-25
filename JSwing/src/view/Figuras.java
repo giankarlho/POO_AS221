@@ -1,8 +1,9 @@
-package vistas;
+package view;
 
 import java.awt.BorderLayout;
 import panels.jpCirculo;
 import panels.jpCuadrado;
+
 
 public class Figuras extends javax.swing.JFrame {
 
@@ -105,7 +106,7 @@ public class Figuras extends javax.swing.JFrame {
                         .addComponent(rdnTriangulo)
                         .addComponent(rdnPentagono))
                     .addComponent(jLabel1))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         jpFigura.setBackground(new java.awt.Color(255, 204, 204));
