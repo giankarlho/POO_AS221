@@ -7,22 +7,26 @@ import javax.swing.ImageIcon;
 import services.GamesS;
 
 public class Yakenpo extends javax.swing.JPanel {
-    
+
     int cantVictorias = 0, cantDerrotas = 0, cantJugadas = 0;
     int figura = 0;             // por defecto en piedra    
     boolean estado = true;      // para reiniciar la jugada
-    Timer timer;                
+    Timer timer;
     TimerTask jugada;
     Icon icono;
+    int sonido = 1;      // 1-> reproducir y 0 -> detenga, el sonido
 
     public Yakenpo() {
         initComponents();
-        comenzarAnimacion();   
-        
+        comenzarAnimacion();
+
         pVictoria.setVisible(false);
         pDerrota.setVisible(false);
-        
+
         GamesS.reproducirSonido("src/sound/pacmanMusic.wav");
+
+        icono = new ImageIcon(getClass().getResource("/image/parlante_morado_64.png"));
+        btnSonido.setIcon(icono);
     }
 
     public void comenzarAnimacion() {
@@ -63,6 +67,7 @@ public class Yakenpo extends javax.swing.JPanel {
         lblJugador = new javax.swing.JLabel();
         lblComputadora = new javax.swing.JLabel();
         lblResultado = new javax.swing.JLabel();
+        btnSonido = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnPapel = new javax.swing.JButton();
         btnTijera = new javax.swing.JButton();
@@ -121,23 +126,34 @@ public class Yakenpo extends javax.swing.JPanel {
 
         lblResultado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
 
+        btnSonido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/parlante_black_64.png"))); // NOI18N
+        btnSonido.setMaximumSize(new java.awt.Dimension(80, 70));
+        btnSonido.setMinimumSize(new java.awt.Dimension(80, 70));
+        btnSonido.setPreferredSize(new java.awt.Dimension(80, 70));
+        btnSonido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSonidoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(244, 244, 244)
-                        .addComponent(lblComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21))
+                .addGap(25, 25, 25)
+                .addComponent(lblJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(lblComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSonido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99)
                 .addComponent(jLabel5)
                 .addGap(45, 45, 45))
         );
@@ -150,15 +166,19 @@ public class Yakenpo extends javax.swing.JPanel {
                     .addComponent(jLabel4))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(13, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))))
+                        .addGap(64, 64, 64))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 7, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSonido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
@@ -576,6 +596,22 @@ public class Yakenpo extends javax.swing.JPanel {
         System.exit(0);
     }//GEN-LAST:event_btnCerrar1ActionPerformed
 
+    private void btnSonidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSonidoActionPerformed
+        switch (sonido) {
+            case 1:
+                GamesS.clip.stop();
+                icono = new ImageIcon(getClass().getResource("/image/parlante_black_64.png"));
+                sonido = 0;
+                break;
+            case 0:
+                GamesS.clip.start();
+                icono = new ImageIcon(getClass().getResource("/image/parlante_morado_64.png"));
+                sonido = 1;
+                break;
+        }
+        btnSonido.setIcon(icono);
+    }//GEN-LAST:event_btnSonidoActionPerformed
+
     public void activarBotones(Boolean estado) {
         btnPiedra.setEnabled(estado);
         btnTijera.setEnabled(estado);
@@ -583,8 +619,8 @@ public class Yakenpo extends javax.swing.JPanel {
     }
 
     public void terminarJuego(int cantJugadas) {
-        if (cantJugadas == 3) {            
-            pYakenpo.setVisible(false);            
+        if (cantJugadas == 3) {
+            pYakenpo.setVisible(false);
             GamesS.clip.stop();
             if (Integer.parseInt(lblPuntosJugador.getText()) > Integer.parseInt(lblPuntosComputadora.getText())) {
                 pVictoria.setVisible(true);
@@ -617,7 +653,7 @@ public class Yakenpo extends javax.swing.JPanel {
         GamesS.reproducirSonido("src/sound/pacmanMusic.wav");
         cantJugadas = cantVictorias = cantDerrotas = 0;
     }
-    
+
     // Código para redimensionar imágenes
 //    public void SetImageLabel(JLabel labelName, String root) {
 //        ImageIcon image = new ImageIcon(root);
@@ -635,7 +671,6 @@ public class Yakenpo extends javax.swing.JPanel {
 //        this.repaint();
 //    }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCerrar1;
@@ -644,6 +679,7 @@ public class Yakenpo extends javax.swing.JPanel {
     private javax.swing.JButton btnJugarVictoria;
     private javax.swing.JButton btnPapel;
     private javax.swing.JButton btnPiedra;
+    private javax.swing.JButton btnSonido;
     private javax.swing.JButton btnTijera;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
