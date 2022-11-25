@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class Conexion {
 
-    public static Connection cnx = null;
+    public Connection cnx = null;
 
-    public static Connection conectar() throws Exception {
+    public Connection conectar() throws Exception {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";
             String user = "root";
@@ -15,7 +15,6 @@ public class Conexion {
             String url = "jdbc:mysql://localhost/BDVentas";
             Class.forName(driver).newInstance();
             cnx = DriverManager.getConnection(url, user, pass);
-//            return cnx;
         } catch (Exception e) {
             System.out.println("Error en la conexión, revisa xfa ");
         }
@@ -23,9 +22,10 @@ public class Conexion {
     }
 
     public static void main(String[] args) throws Exception {
-        Conexion.conectar();
+        Conexion cnx2 = new Conexion();
+        cnx2.conectar();
         // este método me retorna una variable de tipo Connection cnx
-        if (cnx != null) {
+        if (cnx2.cnx != null) {
             System.out.println("Conectado, que shevere");
         } else {
             System.out.println("No pasa nada, sin conexión");
